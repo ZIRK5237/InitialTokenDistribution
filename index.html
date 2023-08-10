@@ -19,13 +19,13 @@
       var option;
 
       var data = [
-        { value: 38.5, name: 'PUBLIC SALE' },
-        { value: 23.1, name: 'LIQUIDITY (LOCKED)' },
-        { value: 15.4, name: 'LP REWARDS' },
-        { value: 7.7, name: 'STAKING REWARDS' },
-        { value: 5.8, name: 'BOUNTIES/REWARDS' },
-        { value: 5.8, name: 'CORE TEAM (VESTED)' },
-        { value: 3.8, name: 'PRIVATE INVESTORS' }
+        { value: 38.5, name: 'PUBLIC SALE', itemStyle: { color: '#1e7fb8' } },
+        { value: 23.1, name: 'LIQUIDITY (LOCKED)', itemStyle: { color: '#2497db' } },
+        { value: 15.4, name: 'LP REWARDS', itemStyle: { color: '#47a8e1' } },
+        { value: 7.7, name: 'STAKING REWARDS', itemStyle: { color: '#6ab9e6' } },
+        { value: 5.8, name: 'BOUNTIES/REWARDS', itemStyle: { color: '#8dc9ec' } },
+        { value: 5.8, name: 'CORE TEAM (VESTED)', itemStyle: { color: '#b0daf2' } },
+        { value: 3.8, name: 'PRIVATE INVESTORS', itemStyle: { color: '#d3eaf8' } }
       ];
 
       option = {
@@ -57,7 +57,7 @@
               label: {
                 show: true,
                 formatter: function(params) {
-                  return params.name + '\n' + params.value + '%'; // Show title and percentage value
+                  return params.name + '\n' + params.value + '%';
                 },
                 fontSize: 24,
                 fontWeight: 'bold',
