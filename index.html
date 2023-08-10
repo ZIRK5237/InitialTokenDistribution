@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ECharts Pie Chart</title>
+  <!-- Add ECharts library via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+</head>
+<body>
+  <!-- Container for the chart -->
+  <div id="main" style="width: 1500px; height: 1000px;"></div>
+
+  <!-- Your JavaScript code -->
+  <script>
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+
+  tooltip: {
+    trigger: 'item'
+  },
+  visualMap: {
+    show: false,
+    min: 0,
+    max: 40,
+    inRange: {
+      colorLightness: [0.2, 0.4]
+    }
+  },
+  series: [
+    {
+      name: 'Initial Token Distribution',
+      type: 'pie',
+      radius: '55%',
+      center: ['50%', '50%'],
+      roseType: 'radius',
+      roseTypeAnimation: false, // Set to false for less expansion
+      data: [
+        {
+          value: 38.5,
+          name: 'PUBLIC SALE'
+        },
+        {
+          value: 23.1,
+          name: 'LIQUIDITY (LOCKED)'
+        },
+        {
+          value: 15.4,
+          name: 'LP REWARDS'
+        },
+        {
+          value: 7.7,
+          name: 'STAKING REWARDS'
+        },
+        {
+          value: 5.8,
+          name: 'BOUNTIES/REWARDS'
+        },
+        {
+          value: 5.8,
+          name: 'CORE TEAM (VESTED)'
+        },
+        {
+          value: 3.8,
+          name: 'PRIVATE INVESTORS'
+        }
+      ].sort(function (a, b) {
+        return a.value - b.value;
+      }),
+      label: {
+        color: '#363B3E'
+      },
+      labelLine: {
+        lineStyle: {
+          color: '#30b1fd'
+        },
+        smooth: 0.2,
+        length: 10,
+        length2: 20
+      },
+      emphasis: {
+        itemStyle: {
+          opacity: 0.8, // Make the hovered segment slightly transparent
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        },
+        label: {
+          show: true,
+          fontSize: '16',
+          fontWeight: 'bold',
+          color: '#30b1fd'
+        }
+      },
+      animationType: 'scale', // Set to 'scale' for smoother animation
+      animationEasing: 'elasticOut',
+      animationDelay: function (idx) {
+        return Math.random() * 200;
+      }
+    }
+  ]
+};
+
+
+    option && myChart.setOption(option);
+  </script>
+</body>
+</html>
