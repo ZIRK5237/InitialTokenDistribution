@@ -1,42 +1,24 @@
 <!DOCTYPE html>
-<!-- saved from url=(0044)file:///D:/Downloads/pie-doughnut%20(3).html -->
-<html lang="en" style="height: 100%"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECharts Treemap Visualization</title>
+  <!-- Include ECharts library -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
 </head>
-<body style="height: 100%; margin: 0">
-  <div id="container" style="height: 100%; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1691669130531"><div style="position: relative; width: 1536px; height: 707px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1920" height="883" style="position: absolute; left: 0px; top: 0px; width: 1536px; height: 707px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+<body>
+  <!-- Container to render the chart -->
+  <div id="main" style="width: 100%; height: 600px;"></div>
 
-  
-  <script type="text/javascript" src="./index_files/echarts.min.js.download"></script>
-  <!-- Uncomment this line if you want to dataTool extension
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/dataTool.min.js"></script>
-  -->
-  <!-- Uncomment this line if you want to use gl extension
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
-  -->
-  <!-- Uncomment this line if you want to echarts-stat extension
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
-  -->
-  <!-- Uncomment this line if you want to use map
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
-  -->
-  <!-- Uncomment these two lines if you want to use bmap extension
-  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
-  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.3/dist/extension/bmap.min.js"></script>
-  -->
+  <script>
+    // ECharts code with custom styling
+    document.addEventListener('DOMContentLoaded', function () {
+      var chartDom = document.getElementById('main');
+      var myChart = echarts.init(chartDom);
+      var option;
 
-  <script type="text/javascript">
-    var dom = document.getElementById('container');
-    var myChart = echarts.init(dom, null, {
-      renderer: 'canvas',
-      useDirtyRect: false
-    });
-    var app = {};
-    
-    var option;
-
-    option = {
+      option = {
   tooltip: {
     trigger: 'item'
   },
@@ -95,12 +77,20 @@
     }
   ]
 };
-
-    if (option && typeof option === 'object') {
-      myChart.setOption(option);
-    }
-
-    window.addEventListener('resize', myChart.resize);
+      option && myChart.setOption(option);
+    });
   </script>
 
-</body></html>
+  <!-- Custom CSS styling -->
+  <style>
+    /* Add custom styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .echarts-treemap-node {
+      /* Add thick lines between the blocks */
+      border: 20px solid #333;
+    }
+  </style>
+</body>
+</html>
